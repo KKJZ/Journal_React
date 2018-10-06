@@ -4,11 +4,11 @@ import './user_page.css';
 export default function User_Page(props) {
 	return (
 		<div className='wrapper'>
-			<aside class="sidebar">
+			<aside className="sidebar">
 				// <img src=""/>
-				<button class="settings btn btn-lg btn-success">Settings</button>
-				<button class="logout btn btn-lg btn-danger">Logout</button>
-				<ul class="entry-list">
+				<button className="settings btn btn-lg btn-success">Settings</button>
+				<button className="logout btn btn-lg btn-danger">Logout</button>
+				<ul className="entry-list">
 					<select>
 						<option>test</option>
 						<option>test</option>
@@ -19,14 +19,14 @@ export default function User_Page(props) {
 					<li>Entry</li>
 				</ul>
 			</aside>
-			<div class="user_page" role="User Page">
+			<div className="user_page" role="User Page">
 				<h1>title</h1>
 				<h2>date</h2>
-				<section class="content">
+				<section className="content">
 			
 				</section>
-				<button class="edit btn btn-lg btn-success">Edit</button>
-				<button class="delete btn btn-lg btn-danger">Delete</button>
+				<button className="edit btn btn-lg btn-success">Edit</button>
+				<button className="delete btn btn-lg btn-danger">Delete</button>
 			</div>
 		</div>
 	)

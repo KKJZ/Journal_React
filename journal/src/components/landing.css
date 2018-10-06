@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3 {
+	padding-top: 50px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.fill {
+	background: black;
+}

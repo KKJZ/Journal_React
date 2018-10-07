@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link, Redirect, Switch} from 'react-router-dom';
 import 'bulma';
-import Landing from './Landing';
-import Login from './Login';
-import Register from './Register';
-import User_Page from './User_Page';
+import Landing from './Landing/Landing';
+import Login from './Login/Login';
+import Register from './Register/Register';
+import User_Page from './User_Page/User_Page';
 
 export default function App() {
 	return (

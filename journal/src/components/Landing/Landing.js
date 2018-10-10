@@ -1,10 +1,8 @@
 import React from 'react';
-import "bulma";
 
 export default function Landing(props) {
 	return (
-	// hero head: stick at the top
-	<div className="wrapper">
+	<section className="hero is-primary is-fullheight">
 		<div className="hero-head">
 			<nav className="navbar">
 				<div className="container">
@@ -31,6 +29,6 @@ export default function Landing(props) {
 				<a className="button is-large is-info" href="#">Check it out!</a>
 			</div>
 		</div>
-	</div>
+	</section>
 	)
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import '~/index.css';
+import 'bulma';
+import App from '~/components/App';
+import * as serviceWorker from '~/serviceWorker';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+console.log('sakfdjhsdfkjghs');
 
 ReactDOM.render(
 	// <Provider store={store}>

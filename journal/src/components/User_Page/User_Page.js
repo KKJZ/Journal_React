@@ -10,7 +10,8 @@ export default class User_Page extends React.Component {
 		this.state = {
 			content: '',
 			jwt: localStorage.getItem('jwt'),
-			entries: []
+			entries: [],
+			editing: false
 		};
 	}
 

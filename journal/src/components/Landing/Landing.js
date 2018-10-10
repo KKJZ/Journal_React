@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Link} from 'react-router-dom';
+import {BrowserRouter as Link} from 'react-router-dom';
 
 export default function Landing(props) {
 	return (

@@ -1,11 +1,14 @@
 import React from 'react';
+// import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import {HashRouter as Link} from 'react-router-dom';
 import './login.css';
 
 export default function Login(props) {
 	return (
 		<div className="login">
-			<form for="Login" id="login" method="POST">
+			<form for="Login" id="login" method="POST"
+				onSubmit={this.props.handleSubmit(values =>
+					this.onSubmit(values))}>
 				<fieldset className="login">
 					<h1 className="title">Login to your Journal</h1>
 					<div className="field">

@@ -1,4 +1,5 @@
 import React from 'react';
+import {HashRouter as Link} from 'react-router-dom';
 
 export default function Landing(props) {
 	return (
@@ -26,7 +27,7 @@ export default function Landing(props) {
 			<div className="container has-text-centered">
 				<h1 className="title">Personal Publication</h1>
 				<h2 className="subtitle">Never forget your journal again.</h2>
-				<a className="button is-large is-info" href="#">Check it out!</a>
+				<Link to="/login"><a className="button is-large is-info" href="/login">Check it out!</a></Link>
 			</div>
 		</div>
 	</section>

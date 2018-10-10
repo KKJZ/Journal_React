@@ -23,6 +23,15 @@ input.userName, input.password, input.submit {
 	margin-top: 20px;
 }
 
+input.submit {
+	float: left;
+}
+
+a.register {
+	margin-top: 20px;
+	float: right;
+}
+
 .rows {
   max-width: 1000px;
   padding-left: 20px;

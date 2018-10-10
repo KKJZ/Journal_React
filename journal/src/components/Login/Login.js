@@ -1,4 +1,5 @@
 import React from 'react';
+import {HashRouter as Link} from 'react-router-dom';
 import './login.css';
 
 export default function Login(props) {
@@ -6,13 +7,25 @@ export default function Login(props) {
 		<div className="login">
 			<form for="Login" id="login" method="POST">
 				<fieldset className="login">
-					<h1>Login</h1>
-					<label for="userName" className="sr-only">User Name:</label>
-					<input type="text" name="userName" placeholder="User Name" required className="userName form-control"/>
-					<label for="password" className="sr-only">Password:</label>
-					<input type="password" name="password" placeholder="Password" required className="password form-control"/>
-					<input type="submit" name="Submit" className="submit btn btn-lg btn-primary btn-block"/>
-					<button className="register btn btn-lg btn-block">Register</button>
+					<h1 className="title">Login to your Journal</h1>
+					<div className="field">
+						<p className="control has-icons-left">
+							<input type="text" name="userName" placeholder="User Name" required className="input"/>
+							<span className="icon is-small is-left">
+								<i className="fas fa-user"></i>
+							</span>
+						</p>
+					</div>
+					<div className="field">
+						<p className="control has-icons-left">
+							<input type="password" name="password" placeholder="Password" required className="input"/>
+							<span className="icon is-small is-left">
+								<i className="fas fa-lock"></i>
+							</span>
+						</p>
+					</div>
+					<input type="submit" name="Submit" className="submit button is-primary"/>
+					<Link to="/register"><a className="register button is-link">Register</a></Link>
 				</fieldset>
 			</form>
 		</div>

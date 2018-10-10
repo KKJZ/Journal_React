@@ -5,10 +5,10 @@
 div.user_page {
 	border: 2px solid black;
 	border-radius: 25px;
-	float: right;
 	width: 1000px;
 	height: 600px;
-	margin-right: 10px;
+	margin-right: auto;
+	margin-left: auto;
 	margin-top: 100px;
 }
 
@@ -16,32 +16,18 @@ h1 {
 	text-align: center;
 }
 
-h2 {
+h2.date {
 	float: right;
 	margin-right: 10px;
 }
 
 section.content {
 	border: 2px solid black;
-	width: 750px;
-	height: 300px;
+	width: 800px;
+	height: 350px;
 	margin-top: 100px;
 	margin-right: auto;
 	margin-left: auto;
-}
-
-aside.sidebar {
-	float: left;
-	height: 500px;
-	width: 250px;
-	margin-left: 10px;
-	margin-top: 100px;
-}
-
-ul.entry-list {
-	border: 2px solid black;
-	width: auto;
-	height: 500px;
 }
 
 button.logout, button.settings {
@@ -52,14 +38,12 @@ button.logout, button.settings {
 
 button.edit {
 	float: left;
-	margin-left: 10px;
-	margin-top: 50px;
+	margin-left: 50px;
 }
 
-button.delete {
+button.del {
 	float: right;
-	margin-top: 50px;
-	margin-right: 10px;
+	margin-right: 50px;
 }
 
 .rows {

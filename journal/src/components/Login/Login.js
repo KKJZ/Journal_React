@@ -6,9 +6,7 @@ import './login.css';
 export default function Login(props) {
 	return (
 		<div className="login">
-			<form for="Login" id="login" method="POST"
-				onSubmit={this.props.handleSubmit(values =>
-					this.onSubmit(values))}>
+			<form for="Login" id="login" method="POST">
 				<fieldset className="login">
 					<h1 className="title">Login to your Journal</h1>
 					<div className="field">
@@ -28,7 +26,7 @@ export default function Login(props) {
 						</p>
 					</div>
 					<input type="submit" name="Submit" className="submit button is-primary"/>
-					<Link to="/register"><a className="register button is-link">Register</a></Link>
+					<Link to="/register"><a href="/register" className="register button is-link">Register</a></Link>
 				</fieldset>
 			</form>
 		</div>

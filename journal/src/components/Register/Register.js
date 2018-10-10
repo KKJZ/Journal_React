@@ -41,7 +41,7 @@ export default function Register(props) {
 
 					<input type="submit" name="Submit" className="submit button is-primary"/>
 
-					<Link to="/login"><a className="register button is-link">Back</a></Link>
+					<Link to="/login"><a href="/login" className="register button is-link">Back</a></Link>
 				</fieldset>
 			</form>
 		</div>

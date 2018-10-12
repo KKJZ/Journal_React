@@ -1,3 +1,10 @@
 import {createStore, combineReducers} from 'redux';
+import authReducer from '~/reducers/auth';
 
-export default createStore(() => {});
+export default createStore(
+	combineReducers({
+		auth: authReducer
+	}),
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+

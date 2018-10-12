@@ -1,18 +1,49 @@
 import React from 'react';
 // import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import {HashRouter as Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './login.css';
-import {fetchLogin} from '~/actions/login';
+import {authRequest, authError, storeAuthInfo} from '~/actions/auth';
+import {API_BASE_URL} from '~/config';
 
 
 //INPUT BUTTON => LOGIN ACTION
 //handle error actions
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
 	loginProxy(e) {
 		e.persist();
 		e.preventDefault();
-		fetchLogin(this.refs.UserName.value, this.refs.Password.value);
+		this.login(this.refs.UserName.value, this.refs.Password.value);
+	};
+	login(userName, password) {
+		//request auth
+		console.log(userName)
+		this.props.dispatch(authRequest());
+		 
+			fetch(`${API_BASE_URL}/login`, {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					userName,
+					password
+				})
+			})
+			.then(res => normalizeResponseErrors(res))
+			.then(res => res.json())
+			.then(({authToken}) => storeAuthInfo(authToken, this.props.dispatch))
+			.catch(err => {
+				const {code} = err;
+				console.log(err);
+				this.props.dispatch(authError(err));
+			})
+	}
+	componentDidUpdate(prevProps) { 
+		if(this.props.state.loading !== prevProps.loading) {
+			console.log('loading!!!')
+		}
 	};
 	render() {
 	return (
@@ -50,3 +81,13 @@ export default class Login extends React.Component {
 		)
 	}
 }
+
+const mapStateToProps = state => ({
+	authToken: state.authToken,
+	currentUser: state.currentUser,
+	loading: state.loading,
+	error: state.error
+});
+
+
+export default connect(mapStateToProps)(Login);

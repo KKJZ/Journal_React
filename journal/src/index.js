@@ -4,13 +4,13 @@ import '~/index.css';
 import 'bulma';
 import App from '~/components/App';
 import * as serviceWorker from '~/serviceWorker';
-// import store from './store';
+import store from '~/store';
 import {Provider} from 'react-redux';
 
 ReactDOM.render(
-	// <Provider store={store}>
+	<Provider store={store}>
 		<App />
-	// </Provider>
+	</Provider>
 	,
 	document.getElementById('root'));
 

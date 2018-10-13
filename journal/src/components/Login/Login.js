@@ -2,6 +2,7 @@ import React from 'react';
 // import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import {HashRouter as Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {normalizeResponseErrors} from '~/actions/utils';
 import './login.css';
 import {authRequest, authError, storeAuthInfo} from '~/actions/auth';
 import {API_BASE_URL} from '~/config';
@@ -12,42 +13,60 @@ import {API_BASE_URL} from '~/config';
 
 export class Login extends React.Component {
 	loginProxy(e) {
+		console.log(this);
 		e.persist();
 		e.preventDefault();
 		this.login(this.refs.UserName.value, this.refs.Password.value);
 	};
 	login(userName, password) {
 		//request auth
-		console.log(userName)
 		this.props.dispatch(authRequest());
-		 
-			fetch(`${API_BASE_URL}/login`, {
-				method: 'POST',
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					userName,
-					password
-				})
+		return fetch(`${API_BASE_URL}/login`, {
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				userName,
+				password
 			})
-			.then(res => normalizeResponseErrors(res))
-			.then(res => res.json())
-			.then(({authToken}) => storeAuthInfo(authToken, this.props.dispatch))
-			.catch(err => {
-				const {code} = err;
-				console.log(err);
-				this.props.dispatch(authError(err));
-			})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(res => this.props.dispatch(storeAuthInfo(res.token, this.props.dispatch)))
+		.catch(err => {
+			const {code} = err;
+			const message = () => {
+				switch(code) {
+					case 401:
+					return "test!";
+
+					default:
+					return "Unable to login, please try again.";
+				}
+			}
+			this.props.dispatch(authError(message));
+		})
 	}
-	componentDidUpdate(prevProps) { 
-		if(this.props.state.loading !== prevProps.loading) {
-			console.log('loading!!!')
-		}
-	};
 	render() {
+		let error;
+		if (this.props.error) {
+			error= (
+				<div className="error" aria-live="polite">
+					{this.props.state.error}
+				</div>
+			)
+		}
+		let loading;
+		if (this.props.loading !== false) {
+			loading = (
+				<input type="submit" name="Submit" className="submit button is-primary"/>
+			);
+			<input type="submit" name="Submit" className="submit button is-primary is-loading"/>
+		}
 	return (
 		<div className="login">
+			{error}
 			<form for="Login" id="login"
 			onSubmit={e=> this.loginProxy(e)}>
 				<fieldset className="login">
@@ -73,7 +92,7 @@ export class Login extends React.Component {
 						</p>
 					</div>
 
-					<input type="submit" name="Submit" className="submit button is-primary"/>
+					{loading}
 					<Link to="/register"><a href="/register" className="register button is-link">Register</a></Link>
 				</fieldset>
 			</form>

@@ -1,14 +1,16 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {HashRouter as Link} from 'react-router-dom';
 import './register.css';
-import {fetchRegister} from '~/actions/register';
+import fetchRegister from '~/actions/register';
 
-export default class Register extends React.Component {
+export class Register extends React.Component {
 	registProxy(e) {
 		e.persist();
 		e.preventDefault();
-		fetchRegister(this.refs.UserName, this.refs.Password);
+		fetchRegister(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch);
 	};
+
 	render() {
 	return (
 		<div className="register">
@@ -61,4 +63,14 @@ export default class Register extends React.Component {
 		</div>
 		)
 	}
-}
+};
+
+const mapStateToProps = state => ({
+	authToken: state.authToken,
+	currentUser: state.currentUser,
+	loading: state.loading,
+	error: state.error
+});
+
+
+export default connect(mapStateToProps)(Register);

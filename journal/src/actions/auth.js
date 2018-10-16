@@ -1,5 +1,4 @@
 import jwtDecode from 'jwt-decode';
-//npm i jwt-decode
 import {normalizeResponseErrors} from '~/actions/utils';
 import {saveAuthToken, removeAuthToken} from '~/localstorage';
 import {API_BASE_URL} from '~/config';

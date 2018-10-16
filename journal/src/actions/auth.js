@@ -32,11 +32,11 @@ export const authError = error => ({
 });
 
 //Store authtoken in state and localstorage, and decode and store user data in token
-export const storeAuthInfo = (authToken, dispatch) => {
-	console.log(authtoken);
-	const decodedToken = jwtDecode(authtoken);
+export function storeAuthInfo(authToken, dispatch){
+	console.log(authToken);
+	const decodedToken = jwtDecode(authToken);
 	//call set action for token
-	dispatch(setAuthToken(authtoken));
+	dispatch(setAuthToken(authToken));
 	//action to show it was a success and set current user
 	dispatch(authSuccess(decodedToken.userName));
 	//saveAuthToken to localStorage
@@ -44,13 +44,13 @@ export const storeAuthInfo = (authToken, dispatch) => {
 };
 
 //trying to make it cleaner
-export function login(userName, password, dispatch, option){
+export const fetchAuth = (userName, password, dispatch, option) =>{
 	//request auth
 	dispatch(authRequest());
 	return (
 		fetch(`${API_BASE_URL}/${option}`, {
 			method: 'POST',
-			header: {
+			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
@@ -60,7 +60,7 @@ export function login(userName, password, dispatch, option){
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.then(res => storeAuthInfo(res.token, dispatch))
 		.catch(err => {
 			const {code, status} = err;
 			console.log(code, status);

@@ -2,9 +2,11 @@ import React from 'react';
 // import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import {HashRouter as Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import jwtDecode from 'jwt-decode';
 import {normalizeResponseErrors} from '~/actions/utils';
 import './login.css';
-import {authRequest, authError, storeAuthInfo} from '~/actions/auth';
+import {saveAuthToken} from '~/localstorage';
+import {authRequest, authError, authSuccess, setAuthToken, login} from '~/actions/auth';
 import {API_BASE_URL} from '~/config';
 
 
@@ -16,8 +18,10 @@ export class Login extends React.Component {
 		console.log(this);
 		e.persist();
 		e.preventDefault();
-		this.login(this.refs.UserName.value, this.refs.Password.value);
+		//want this to be a fetch whatever function
+		login(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
+	//wouldn't work in /actions/auth.js
 	login(userName, password) {
 		//request auth
 		this.props.dispatch(authRequest());
@@ -33,7 +37,15 @@ export class Login extends React.Component {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(res => this.props.dispatch(storeAuthInfo(res.token, this.props.dispatch)))
+		.then(res => {
+			// will not even run this
+			// this.storeAuthInfo(res.token)
+			const authtoken = res.token;
+			const decodedToken = jwtDecode(authtoken);
+			console.log(decodedToken);
+			this.props.dispatch(setAuthToken(authtoken));
+			this.props.dispatch(authSuccess(decodedToken.userName));
+		})
 		.catch(err => {
 			const {code} = err;
 			const message = () => {
@@ -47,7 +59,18 @@ export class Login extends React.Component {
 			}
 			this.props.dispatch(authError(message));
 		})
-	}
+	};
+	//can't import 
+	storeAuthInfo(authToken) {
+	console.log(authtoken);
+	const decodedToken = jwtDecode(authtoken);
+	//call set action for token
+	this.dispatch(setAuthToken(authtoken));
+	//action to show it was a success and set current user
+	this.dispatch(authSuccess(decodedToken.userName));
+	//saveAuthToken to localStorage
+	saveAuthToken(authToken);
+	};
 	render() {
 		let error;
 		if (this.props.error) {

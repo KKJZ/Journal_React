@@ -39,6 +39,7 @@ export default function authReducer(state=intitialState, action) {
 			});
 
 		case AUTH_ERROR:
+		console.log(action)
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error

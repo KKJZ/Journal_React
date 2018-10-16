@@ -43,12 +43,12 @@ export const storeAuthInfo = (authToken, dispatch) => {
 	saveAuthToken(authToken);
 };
 
-export const login = (userName, password) => dispatch => {
+//trying to make it cleaner
+export function login(userName, password, dispatch, option){
 	//request auth
-	console.log('hi');
 	dispatch(authRequest());
 	return (
-		fetch(`${API_BASE_URL}/login`, {
+		fetch(`${API_BASE_URL}/${option}`, {
 			method: 'POST',
 			header: {
 				'Content-Type': 'application/json'

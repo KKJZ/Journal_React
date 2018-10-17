@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {HashRouter as Link} from 'react-router-dom';
 import './register.css';
-import fetchRegister from '~/actions/register';
+import {fetchAuth} from '~/actions/auth';
 
 export class Register extends React.Component {
 	registProxy(e) {

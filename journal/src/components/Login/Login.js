@@ -1,5 +1,6 @@
 import React from 'react';
-import {HashRouter as Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {HashRouter as Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './login.css';
 import {fetchAuth} from '~/actions/auth';
@@ -10,30 +11,42 @@ import {fetchAuth} from '~/actions/auth';
 
 export class Login extends React.Component {
 	loginProxy(e) {
-		console.log(this);
+		console.log(this.props);
 		e.persist();
 		e.preventDefault();
 		//want this to be a fetch whatever function
 		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
+
+	componentWillMount() {
+	};
+
 	render() {
+		console.log('render')
 		let error;
 		if (this.props.error) {
-			error= (
+			error = (
 				<div className="error" aria-live="polite">
-					{this.props.state.error}
+					{this.props.error}
 				</div>
 			)
 		}
+
 		let loading;
-		if (this.props.loading !== false) {
-			loading = (
-				<input type="submit" name="Submit" className="submit button is-primary"/>
-			);
-			<input type="submit" name="Submit" className="submit button is-primary is-loading"/>
+		if (this.props.loading === true){
+			loading = <input type="submit" name="Submit" className="submit button is-primary is-loading"/> 
 		}
+		loading = <input type="submit" name="Submit" className="submit button is-primary"/>
+
+		let currentUser;
+		if(this.props.currentUser !== null) {
+			const url = `/profile/${this.props.currentUser}`
+			return <Redirect to={url} />
+		}
+
 	return (
 		<div className="login">
+			{currentUser}
 			{error}
 			<form for="Login" id="login"
 			onSubmit={e=> this.loginProxy(e)}>
@@ -59,7 +72,6 @@ export class Login extends React.Component {
 							</span>
 						</p>
 					</div>
-
 					{loading}
 					<Link to="/register"><a href="/register" className="register button is-link">Register</a></Link>
 				</fieldset>
@@ -69,11 +81,18 @@ export class Login extends React.Component {
 	}
 }
 
+Login.propTypes = {
+	authToken: PropTypes.string,
+	currentUser: PropTypes.string,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.string
+};
+
 const mapStateToProps = state => ({
-	authToken: state.authToken,
-	currentUser: state.currentUser,
-	loading: state.loading,
-	error: state.error
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser,
+	loading: state.auth.loading,
+	error: state.auth.error
 });
 
 

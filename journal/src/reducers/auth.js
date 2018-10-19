@@ -3,14 +3,17 @@ import {
 	CLEAR_AUTH,
 	AUTH_REQUEST,
 	AUTH_SUCCESS,
-	AUTH_ERROR
+	AUTH_ERROR,
+	AUTH_REFRESH,
+	AUTH_REFRESH_SUCCESS
 } from '~/actions/auth';
 
 const intitialState = {
 	authToken: null,
 	currentUser: null,
 	loading: false,
-	error: null
+	error: null,
+	refresh: true
 }
 
 export default function authReducer(state=intitialState, action) {
@@ -43,6 +46,18 @@ export default function authReducer(state=intitialState, action) {
 				loading: false,
 				error: action.error
 			});
+
+		case AUTH_REFRESH:
+			return Object.assign({}, state, {
+				loading: true,
+				refresh: true
+			})
+
+		case AUTH_REFRESH_SUCCESS:
+			return Object.assign({}, state, {
+				loading: false,
+				refresh: false
+			})
 		default:
 			return state;
 	}

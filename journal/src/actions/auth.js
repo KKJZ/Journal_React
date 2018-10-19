@@ -27,9 +27,19 @@ export const authSuccess = currentUser => ({
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({
-	type:AUTH_ERROR,
+	type: AUTH_ERROR,
 	error
 });
+
+export const AUTH_REFRESH = 'AUTH_REFRESH';
+export const authRefresh = () => ({
+	type: AUTH_REFRESH
+});
+
+export const AUTH_REFRESH_SUCCESS = 'AUTH_REFRESH_SUCCESS';
+export const authRefreshSuccess =  () => ({
+	type: AUTH_REFRESH_SUCCESS
+})
 
 //Store authtoken in state and localstorage, and decode and store user data in token
 export function storeAuthInfo(authToken, dispatch){
@@ -43,7 +53,7 @@ export function storeAuthInfo(authToken, dispatch){
 };
 
 //trying to make it cleaner
-export const fetchAuth = (userName, password, dispatch, option) =>{
+export const fetchAuth = (userName, password, dispatch, option) => {
 	//request auth
 	dispatch(authRequest());
 	return (
@@ -64,6 +74,27 @@ export const fetchAuth = (userName, password, dispatch, option) =>{
 			const {code, status} = err;
 			dispatch(authError(code));
 		})
+	)
+}
+
+//refresh function
+export const refreshAuth = (token, dispatch) => {
+	return (
+		fetch(`${API_BASE_URL}/login/refresh`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization': `bearer ${token}`
+			}
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(res => storeAuthInfo(res.token, dispatch))
+		.then(res => dispatch(authRefreshSuccess()))
+		.catch(err => {
+			const {code, status} = err;
+			dispatch(clearAuthToken());
+		}) 
 	)
 }
 

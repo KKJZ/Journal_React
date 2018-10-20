@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HashRouter as Link, Redirect} from 'react-router-dom';
+import {BrowserRouter as Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './login.css';
 import {fetchAuth} from '~/actions/auth';
@@ -18,18 +18,27 @@ export class Login extends React.Component {
 		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
 
-	componentWillMount() {
-	};
-
 	render() {
-		console.log('render')
 		let error;
 		if (this.props.error) {
-			error = (
-				<div className="error" aria-live="polite">
-					{this.props.error}
-				</div>
-			)
+			console.log(this.props.error)
+			switch(this.props.error){
+				case 401:
+				console.log('401');
+					error = (
+						<div className="error">
+						<h2>Wrong Password.</h2>
+						</div>
+					);
+					break;
+				default:
+					console.log('default');
+					error = (
+						<div className="error">
+						<h2>Try a different Username or make an acccount <a href="/register">here</a></h2>
+						</div>
+					);
+			}
 		}
 
 		let loading;
@@ -47,12 +56,11 @@ export class Login extends React.Component {
 	return (
 		<div className="login">
 			{currentUser}
-			{error}
-			<form for="Login" id="login"
+			<form htmlFor="Login" id="login"
 			onSubmit={e=> this.loginProxy(e)}>
 				<fieldset className="login">
 					<h1 className="title">Login to your Journal</h1>
-
+					{error}
 					<div className="field">
 						<p className="control has-icons-left">
 							<input type="text" name="userName" placeholder="User Name" required className="input"

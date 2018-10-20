@@ -1,9 +1,11 @@
 import React from 'react';
+import {BrowserRouter as Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './user_page.css';
 import Nav from './nav';
 import Main from './main';
 import {refreshAuth} from '~/actions/auth';
+import {fetchEntries} from '~/actions/profile';
 import 'bulma';
 
 export class User_Page extends React.Component {
@@ -14,6 +16,8 @@ export class User_Page extends React.Component {
 		if (this.props.refresh === true) {
 			refreshAuth(this.props.authToken, this.props.dispatch)
 		}
+		//action that will grab the entries
+		fetchEntries(this.props.userName, this.props.authToken, this.props.dispatch);
 	}
 
 	componentWillUnmount() {
@@ -57,9 +61,11 @@ const mapStateToProps = state => (
 	currentUser: state.auth.currentUser,
 	loading: state.auth.loading,
 	refresh: state.auth.refresh,
-	// entries: [...state],
-	// editing: state,
-	// entry: state
+	entryLoading: state.profile.entryLoading,
+	entryError: state.profile.entryError,
+	entries: [state.profile.entries],
+	editing: state.profile.editing,
+	entry: state.profile.entry
 });
 
 export default connect(mapStateToProps)(User_Page);

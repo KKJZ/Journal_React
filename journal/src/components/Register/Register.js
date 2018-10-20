@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {HashRouter as Link} from 'react-router-dom';
+import {BrowserRouter as Link} from 'react-router-dom';
 import './register.css';
 import {fetchAuth} from '~/actions/auth';
 import {setUserNameField, setPasswordField, setConfirmField} from '~/actions/register';

@@ -32,6 +32,12 @@ a.register {
 	float: right;
 }
 
+.error {
+	text-align: center;
+	color: red;
+	margin-bottom: 10px;
+}
+
 .rows {
   max-width: 1000px;
   padding-left: 20px;

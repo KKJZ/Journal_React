@@ -10,7 +10,12 @@ const intitialState = {
 	entryLoading: false,
 	entryError: null,
 	editing: false,
-	entry: 'welcome'
+	entry: {
+		title: 'welcome',
+		date: new Date().toString,
+		content: 'test',
+		userName: 'test'
+	}
 }
 
 export default function profileReducer(state=intitialState, action) {

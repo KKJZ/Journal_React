@@ -2,13 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {HashRouter as Link} from 'react-router-dom';
 import './register.css';
-import fetchRegister from '~/actions/register';
+import {fetchAuth} from '~/actions/auth';
 
 export class Register extends React.Component {
 	registProxy(e) {
 		e.persist();
 		e.preventDefault();
-		fetchRegister(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch);
+		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, "register");
 	};
 
 	render() {

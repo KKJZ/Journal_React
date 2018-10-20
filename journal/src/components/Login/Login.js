@@ -1,13 +1,9 @@
 import React from 'react';
-// import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import {HashRouter as Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {BrowserRouter as Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import jwtDecode from 'jwt-decode';
-import {normalizeResponseErrors} from '~/actions/utils';
 import './login.css';
-import {saveAuthToken} from '~/localstorage';
-import {authRequest, authError, authSuccess, setAuthToken, fetchAuth} from '~/actions/auth';
-import {API_BASE_URL} from '~/config';
+import {fetchAuth} from '~/actions/auth';
 
 
 //INPUT BUTTON => LOGIN ACTION
@@ -23,27 +19,46 @@ export class Login extends React.Component {
 	render() {
 		let error;
 		if (this.props.error) {
-			error= (
-				<div className="error" aria-live="polite">
-					{this.props.state.error}
-				</div>
-			)
+			console.log(this.props.error)
+			switch(this.props.error){
+				case 401:
+				console.log('401');
+					error = (
+						<div className="error">
+						<h2>Wrong Password.</h2>
+						</div>
+					);
+					break;
+				default:
+					console.log('default');
+					error = (
+						<div className="error">
+						<h2>Try a different Username or make an acccount <a href="/register">here</a></h2>
+						</div>
+					);
+			}
 		}
+
 		let loading;
-		if (this.props.loading !== false) {
-			loading = (
-				<input type="submit" name="Submit" className="submit button is-primary"/>
-			);
-			<input type="submit" name="Submit" className="submit button is-primary is-loading"/>
+		if (this.props.loading === true){
+			loading = <input type="submit" name="Submit" className="submit button is-primary is-loading"/> 
 		}
+		loading = <input type="submit" name="Submit" className="submit button is-primary"/>
+
+		let currentUser;
+		if(this.props.currentUser !== null) {
+			const url = `/profile/${this.props.currentUser}`
+			return <Redirect to={url} />
+		}
+
 	return (
 		<div className="login">
-			{error}
-			<form for="Login" id="login"
+			{currentUser}
+			<form htmlFor="Login" id="login"
 			onSubmit={e=> this.loginProxy(e)}>
 				<fieldset className="login">
 					<h1 className="title">Login to your Journal</h1>
-
+					{error}
 					<div className="field">
 						<p className="control has-icons-left">
 							<input type="text" name="userName" placeholder="User Name" required className="input"
@@ -63,7 +78,6 @@ export class Login extends React.Component {
 							</span>
 						</p>
 					</div>
-
 					{loading}
 					<Link to="/register"><a href="/register" className="register button is-link">Register</a></Link>
 				</fieldset>
@@ -73,11 +87,18 @@ export class Login extends React.Component {
 	}
 }
 
+Login.propTypes = {
+	authToken: PropTypes.string,
+	currentUser: PropTypes.string,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.string
+};
+
 const mapStateToProps = state => ({
-	authToken: state.authToken,
-	currentUser: state.currentUser,
-	loading: state.loading,
-	error: state.error
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser,
+	loading: state.auth.loading,
+	error: state.auth.error
 });
 
 

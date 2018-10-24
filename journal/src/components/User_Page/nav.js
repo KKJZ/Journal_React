@@ -5,6 +5,18 @@ import {changeEntry, setEdit} from '~/actions/profile'
 // newPostEntry need to make something 
 
 export function Nav(props) {
+	const homeEntry = {
+		title: 'welcome',
+		date: new Date().toString(),
+		content: 'in nav',
+		userName: 'welcome'
+	}
+
+	const homeClick = e => {
+		e.preventDefault();
+		props.dispatch(setEdit(false));
+		props.dispatch(changeEntry(homeEntry))
+	}
 	//add is-active to navbar-burger and navbar-menu to show nav menu
 	const newPostEntry = {
 		title: null,
@@ -21,6 +33,7 @@ export function Nav(props) {
 		e.preventDefault();
 		let targetId = e.target.id;
 		let newEntry = props.entries.filter(entry => targetId !== entry.id);
+		props.dispatch(setEdit(false));
 		props.dispatch(changeEntry(newEntry[0]));
 
 	}
@@ -52,7 +65,8 @@ export function Nav(props) {
 			</div>
 			<div id="navbarBasicExample" className="navbar-menu">
 				<div className="navbar-start">
-					<a className="navbar-item">
+					<a className="navbar-item"
+					onClick={homeClick}>
 						Home
 					</a>
 					<div className="navbar-item has-dropdown is-hoverable">

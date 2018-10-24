@@ -18,7 +18,7 @@ const intitialState = {
 		title: 'welcome',
 		date: today,
 		content: 'test',
-		userName: 'test'
+		userName: 'welcome'
 	}
 }
 

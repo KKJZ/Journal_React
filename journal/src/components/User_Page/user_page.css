@@ -46,6 +46,10 @@ button.del {
 	margin-right: 50px;
 }
 
+label.editing {
+	text-align: center;
+}
+
 form#post {
 	margin-top: 50px;
 }

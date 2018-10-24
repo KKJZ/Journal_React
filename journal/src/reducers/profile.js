@@ -2,8 +2,12 @@ import {
 	REQUEST_ENTRIES,
 	SET_ENTRIES,
 	CLEAR_ENTRIES,
-	ERROR_ENTRIES
+	ERROR_ENTRIES,
+	CHANGE_ENTRY,
+	SET_EDIT
 } from '~/actions/profile';
+
+let today = new Date().toString();
 
 const intitialState = {
 	entries: null,
@@ -12,7 +16,7 @@ const intitialState = {
 	editing: false,
 	entry: {
 		title: 'welcome',
-		date: new Date().toString,
+		date: today,
 		content: 'test',
 		userName: 'test'
 	}
@@ -43,6 +47,15 @@ export default function profileReducer(state=intitialState, action) {
 				entryError: action.error
 			});
 
+		case CHANGE_ENTRY:
+			return Object.assign({}, state, {
+				entry: action.entry
+			});
+
+		case SET_EDIT:
+			return Object.assign({}, state, {
+				editing: action.editing
+			})
 		default:
 			return state;
 	}

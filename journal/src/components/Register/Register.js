@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {BrowserRouter as Link} from 'react-router-dom';
 import './register.css';
 import {fetchAuth} from '~/actions/auth';
+import {setUserNameField, setPasswordField, setConfirmField} from '~/actions/register';
 
 export class Register extends React.Component {
 	registProxy(e) {
@@ -46,6 +47,7 @@ export class Register extends React.Component {
 					<span className="icon is-small is-right">
       					<i className="fas fa-lock" />
     				</span>
+    				<p className="help">Password doesn't match</p>
     			</p>
     			);
 			}

@@ -46,6 +46,10 @@ button.del {
 	margin-right: 50px;
 }
 
+form#post {
+	margin-top: 50px;
+}
+
 .rows {
   max-width: 1000px;
   padding-left: 20px;

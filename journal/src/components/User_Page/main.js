@@ -2,10 +2,39 @@ import React from "react";
 import {connect} from 'react-redux';
 
 export function Main(props) {
-	console.log(props)
 	let Title = props.entry.title;
-	let __Date = new Date.toString;
+	let __Date = props.entry.date;
 	let Content = props.entry.content;
+	let editing;
+	if (props.editing === true) {
+		return ( 
+		<div className="user_page" role="User Page">
+			<form htmlFor="Post" id="post" 
+			onSubmit={e => console.log(e)}>
+				<div className="field">
+					<label className="label">Title</label>
+					<div>
+						<input className="input" type="text" placeholder="Title" />
+					</div>
+				</div>
+				<div className="field">
+					<label className="label">Content</label>
+					<div>
+						<textarea className="textarea" placeholder="Type your entry here!" />
+					</div>
+				</div>
+				<div className="field is-grouped">
+					<div className="control">
+						<button className="button is-link">Submit</button>
+					</div>
+					<div className="control">
+						<button className="button is-text">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		)
+	} else
 	return (
 		<div className="user_page" role="User Page"
 		// style="background: white"
@@ -24,7 +53,8 @@ export function Main(props) {
 }
 
 const mapStateToProps = state => ({
-	entry: state.profile.entry
+	entry: state.profile.entry,
+	editing: state.profile.editing
 })
 
 export default connect(mapStateToProps)(Main)

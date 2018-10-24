@@ -22,7 +22,19 @@ export const errorEntries = error => ({
 	type: ERROR_ENTRIES,
 	error
 });
-
+export const CHANGE_ENTRY = 'CHANGE_ENTRY';
+export const changeEntry = entry => ({
+	type: CHANGE_ENTRY,
+	entry
+});
+export const SET_EDIT = 'SET_EDIT';
+export const setEdit = editing => ({
+	type: SET_EDIT,
+	editing
+});
+//find id for change
+//filter through entries state 
+//send entry with id 
 
 
 export const fetchEntries = (userName, token, dispatch) => {

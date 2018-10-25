@@ -1,7 +1,15 @@
 import React from "react";
 import {connect} from 'react-redux';
+import {postEntry} from '~/actions/profile';
 
 export function Main(props) {
+	const postProxy = (e) => {
+	e.preventDefault();
+	let title = e.target[0].value;
+	let content = e.target[1].value;
+	postEntry(title, content, props.authToken, props.currentUser, props.dispatch);
+}
+
 	let Title = props.entry.title;
 	let __Date = props.entry.date;
 	let Content = props.entry.content;
@@ -61,14 +69,9 @@ export function Main(props) {
 	)
 }
 
-function postProxy (e) {
-	e.preventDefault();
-	let title = e.target[0].value;
-	let content = e.target[1].value;
-	console.log(title, content);
-}
-
 const mapStateToProps = state => ({
+	authToken: state.auth.authToken,
+	currentUser: state.auth.currentUser,
 	entry: state.profile.entry,
 	editing: state.profile.editing
 })

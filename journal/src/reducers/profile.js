@@ -4,7 +4,8 @@ import {
 	CLEAR_ENTRIES,
 	ERROR_ENTRIES,
 	CHANGE_ENTRY,
-	SET_EDIT
+	SET_EDIT,
+	NEW_POST_REQUEST
 } from '~/actions/profile';
 
 let today = new Date().toString();
@@ -49,13 +50,20 @@ export default function profileReducer(state=intitialState, action) {
 
 		case CHANGE_ENTRY:
 			return Object.assign({}, state, {
+				entryLoading: false,
 				entry: action.entry
 			});
 
 		case SET_EDIT:
 			return Object.assign({}, state, {
 				editing: action.editing
-			})
+			});
+
+		case NEW_POST_REQUEST:
+			return Object.assign({}, state, {
+				entryLoading: true
+			});
+			
 		default:
 			return state;
 	}

@@ -42,7 +42,7 @@ export function Nav(props) {
 		props.entries.forEach(function(entry, index) {
 			listEntries.push(
 				<a 
-				index={index} 
+				key={index} 
 				id={entry.id} 
 				className="navbar-item"
 				onClick={checkId}>

@@ -32,10 +32,37 @@ export const setEdit = editing => ({
 	type: SET_EDIT,
 	editing
 });
-//find id for change
-//filter through entries state 
-//send entry with id 
 
+export const NEW_POST_REQUEST = 'NEW_POST_REQUEST';
+export const newPostRequest = () => ({
+	type: NEW_POST_REQUEST
+});
+
+export const postEntry =  (title, content, token, userName, dispatch) => {
+	dispatch(newPostRequest());
+	return (
+		fetch(`${API_BASE_URL}/posts`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization': `bearer ${token}`
+			},
+			body: JSON.stringify({
+				title,
+				content
+			})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(res => {
+			//res is entry, so set this entry
+			dispatch(changeEntry(res));
+			dispatch(setEdit(false));
+			//then dispatch the new list of entries
+			fetchEntries(userName, token, dispatch);
+		})
+	)
+}
 
 export const fetchEntries = (userName, token, dispatch) => {
 	dispatch(requestEntries());

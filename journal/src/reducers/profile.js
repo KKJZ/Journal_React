@@ -5,7 +5,9 @@ import {
 	ERROR_ENTRIES,
 	CHANGE_ENTRY,
 	SET_EDIT,
-	NEW_POST_REQUEST
+	NEW_POST_REQUEST,
+	CHANGE_TITLE,
+	CHANGE_CONTENT
 } from '~/actions/profile';
 
 let today = new Date().toString();
@@ -16,6 +18,7 @@ const intitialState = {
 	entryError: null,
 	editing: false,
 	entry: {
+		id: null,
 		title: 'welcome',
 		date: today,
 		content: 'test',
@@ -63,7 +66,29 @@ export default function profileReducer(state=intitialState, action) {
 			return Object.assign({}, state, {
 				entryLoading: true
 			});
-			
+
+		case CHANGE_TITLE:
+			return Object.assign({}, state, {
+				entry: {
+					id: state.entry.id,
+					title: action.title,
+					date: state.entry.date,
+					content: state.entry.content,
+					userName: state.entry.userName
+				}
+			});
+
+		case CHANGE_CONTENT:
+			return Object.assign({}, state, {
+				entry: {
+					id: state.entry.id,
+					title: state.entry.title,
+					date: state.entry.date,
+					content: action.content,
+					userName: state.entry.userName
+				}
+			})
+
 		default:
 			return state;
 	}

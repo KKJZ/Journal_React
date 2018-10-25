@@ -22,23 +22,37 @@ export const errorEntries = error => ({
 	type: ERROR_ENTRIES,
 	error
 });
+
 export const CHANGE_ENTRY = 'CHANGE_ENTRY';
 export const changeEntry = entry => ({
 	type: CHANGE_ENTRY,
 	entry
 });
+
 export const SET_EDIT = 'SET_EDIT';
 export const setEdit = editing => ({
 	type: SET_EDIT,
 	editing
 });
 
+export const CHANGE_TITLE = 'CHANGE_TITLE';
+export const changeTitle = title => ({
+	type: CHANGE_TITLE,
+	title
+});
+
+export const CHANGE_CONTENT = 'CHANGE_CONTENT';
+export const changeContent = content => ({
+	type: CHANGE_CONTENT,
+	content
+})
+
 export const NEW_POST_REQUEST = 'NEW_POST_REQUEST';
 export const newPostRequest = () => ({
 	type: NEW_POST_REQUEST
 });
 
-export const postEntry =  (title, content, token, userName, dispatch) => {
+export const postEntry = (title, content, token, userName, dispatch) => {
 	dispatch(newPostRequest());
 	return (
 		fetch(`${API_BASE_URL}/posts`, {
@@ -60,6 +74,31 @@ export const postEntry =  (title, content, token, userName, dispatch) => {
 			dispatch(setEdit(false));
 			//then dispatch the new list of entries
 			fetchEntries(userName, token, dispatch);
+		})
+	)
+}
+
+export const editEntry = (title, content, id, token, userName, dispatch) => {
+	dispatch(newPostRequest());
+	return (
+		fetch(`${API_BASE_URL}/posts/${id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization': `bearer ${token}`
+			},
+			body: JSON.stringify({
+				title,
+				content
+			})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => console.log(res))
+		.then(res => {
+			//refresh the entries
+			fetchEntries(userName, token, dispatch);
+			//change to edited entry
+			dispatch(setEdit(false));
 		})
 	)
 }

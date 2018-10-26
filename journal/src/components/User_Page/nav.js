@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {changeEntry, setEdit} from '~/actions/profile'
+import {changeEntry, setEdit, clearAuthToken} from '~/actions/profile'
 
 // newPostEntry need to make something 
 
@@ -15,7 +15,13 @@ export function Nav(props) {
 	const homeClick = e => {
 		e.preventDefault();
 		props.dispatch(setEdit(false));
-		props.dispatch(changeEntry(homeEntry))
+		props.dispatch(changeEntry(homeEntry));
+	}
+
+	const logoutClick = e => {
+		e.preventDefault();
+		props.dispatch(clearAuthToken());
+		window.location = '/';
 	}
 	//add is-active to navbar-burger and navbar-menu to show nav menu
 	const newPostEntry = {
@@ -83,7 +89,8 @@ export function Nav(props) {
 					</div>
 					<div className="navbar-end">
 						<div className="navbar-item">
-							<a className="button is-primary">
+							<a className="button is-primary"
+							onClick={logoutClick}>
 								Logout
 							</a>
 						</div>

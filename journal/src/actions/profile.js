@@ -52,6 +52,11 @@ export const newPostRequest = () => ({
 	type: NEW_POST_REQUEST
 });
 
+export const DELETE_ENTRY_REQUEST = 'DELETE_ENTRY_REQUEST';
+export const deleteEntryRequest = () => ({
+	type: DELETE_ENTRY_REQUEST
+})
+
 export const postEntry = (title, content, token, userName, dispatch) => {
 	dispatch(newPostRequest());
 	return (
@@ -100,6 +105,10 @@ export const editEntry = (title, content, id, token, userName, dispatch) => {
 			//change to edited entry
 			dispatch(setEdit(false));
 		})
+		.catch(err => {
+			const {code, status} = err;
+			dispatch(errorEntries(code));
+		})
 	)
 }
 
@@ -116,6 +125,35 @@ export const fetchEntries = (userName, token, dispatch) => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(res => dispatch(setEntries(res)))
+		.catch(err => {
+			const {code, status} = err;
+			dispatch(errorEntries(code));
+		})
+	)
+}
+
+export const deleteEntry = (userName, title, id, token, dispatch) => {
+	dispatch(deleteRequest());
+	return (
+		fetch(`${API_BASE_URL}/posts/${id}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				'authorization': `bearer ${token}`
+			}
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => {
+			dispatch(changeEntry({
+				id: null,
+				title: `You Deleted ${title}`,
+				date: new Date().toString(),
+				content: 'The entry has been deleted, why not make another.',
+				userName: 'welcome'
+			}))
+			dispatch(fetchEntries(userName, token, dispatch))
+			dispatch(setEdit(false))
+		})
 		.catch(err => {
 			const {code, status} = err;
 			dispatch(errorEntries(code));

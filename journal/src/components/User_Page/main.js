@@ -25,7 +25,7 @@ export function Main(props) {
 		options =(
 		<div className="wrapper"> 
 			<button className="button is-success edit" onClick={() => props.dispatch(setEdit(true))}>Edit</button>
-			<button className="button is-danger del" onClick={()=> deleteEntry(props.currentUser, props.entry.title props.entry.id, prop.authToken, props.dispatch))}>Delete</button>
+			<button className="button is-danger del" onClick={()=> deleteEntry(props.currentUser, props.entry.title, props.entry.id, prop.authToken, props.dispatch)}>Delete</button>
 		</div>
 		)
 	}

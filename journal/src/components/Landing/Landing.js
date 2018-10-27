@@ -27,7 +27,7 @@ export default function Landing(props) {
 			<div className="container has-text-centered">
 				<h1 className="title">Personal Publication</h1>
 				<h2 className="subtitle">Never forget your journal again.</h2>
-				<Link to="/login"><a className="button is-large is-info" href="/login">Check it out!</a></Link>
+				<Link to="/login"><a className="button is-large is-info login" href="/login">Check it out!</a></Link>
 			</div>
 		</div>
 	</section>

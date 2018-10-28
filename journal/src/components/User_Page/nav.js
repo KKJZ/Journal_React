@@ -38,7 +38,7 @@ export function Nav(props) {
 	const checkId = e => {
 		e.preventDefault();
 		let targetId = e.target.id;
-		let newEntry = props.entries.filter(entry => targetId !== entry.id);
+		let newEntry = props.entries.filter(entry => targetId === entry.id);
 		props.dispatch(setEdit(false));
 		props.dispatch(changeEntry(newEntry[0]));
 

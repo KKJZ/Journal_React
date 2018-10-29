@@ -14,7 +14,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "./node_modules/.bin/webpack",
-    "test": "react-scripts test",
+    "test": "cypress run --record --key c2ee25b0-110b-4b04-95e5-bab2e7aab55d",
     "eject": "react-scripts eject",
     "e2e": "cypress open"
   },

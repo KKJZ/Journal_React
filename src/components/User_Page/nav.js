@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {changeEntry, setEdit, clearAuthToken} from '~/actions/profile'
+import {changeEntry, setEdit, clearAuthToken} from '~/actions/profile';
+import {clearAuthToken} from '~/actions/auth';
 
 // newPostEntry need to make something 
 

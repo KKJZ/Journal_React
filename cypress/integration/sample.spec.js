@@ -5,7 +5,7 @@ const chance = new Chance();
 
 describe('Journal', () => {
 	beforeEach(() => {
-		cy.visit('http://localhost:3000');
+		cy.visit('https://personalpublication.herokuapp.com/');
 	})
 
 	it('has title', () => {

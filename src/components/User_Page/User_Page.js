@@ -11,7 +11,7 @@ import 'bulma';
 export class User_Page extends React.Component {
 	componentWillMount(prevProps) {
 		if (this.props.authToken === null) {
-			return <Redirect to='/'/>
+			this.props.history.push('/login');
 		}
 		if (this.props.refresh === true) {
 			refreshAuth(this.props.authToken, this.props.dispatch)
@@ -33,7 +33,7 @@ export class User_Page extends React.Component {
 	startRefresh() {
 		this.refreshInterval = setInterval(
 			() => this.props.dispatch(authRefresh()),
-			60 * 60 * 1000 //1 hr need it to be 5 min
+			5 * 60 * 1000
 		);
 	}
 

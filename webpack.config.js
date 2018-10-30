@@ -5,10 +5,11 @@ const path = require('path');
 
 module.exports =  function (env = {}) {
 	return {
-	entry: path.join(__dirname, 'src', 'index.js'),
+	entry: path.join(__dirname, 'src', './index.js'),
 	output: {
 			filename: 'main.js',
-			path: path.join(__dirname, 'dist')
+			path: path.join(__dirname, 'dist'),
+      publicPath: '/'
 		},
 	devtool: '#source-map',
 	devServer: {

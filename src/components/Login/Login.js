@@ -13,7 +13,6 @@ export class Login extends React.Component {
 	loginProxy(e) {
 		e.persist();
 		e.preventDefault();
-		//want this to be a fetch whatever function
 		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
 	render() {

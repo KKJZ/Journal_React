@@ -69,6 +69,13 @@ export const changeFontColor = editFColor => ({
 	editFColor
 });
 
+
+export const NAV_BAR = 'NAV_BAR';
+export const setNavBar = navbar => ({
+	type: NAV_BAR,
+	navbar
+})
+
 let today = new Date().toString();
 export const defaultEntry = {
 		id: null,

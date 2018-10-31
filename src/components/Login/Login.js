@@ -13,6 +13,7 @@ export class Login extends React.Component {
 	loginProxy(e) {
 		e.persist();
 		e.preventDefault();
+		console.log(this.props);
 		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
 	render() {
@@ -39,10 +40,11 @@ export class Login extends React.Component {
 		}
 
 		let loading;
-		if (this.props.loading === true){
-			loading = <input type="submit" name="Submit" className="submit button is-primary is-loading"/> 
+		if (this.props.loading !== true){
+			loading = <input type="submit" name="Submit" className="submit button is-primary"/> 
+		} else{
+			loading = <input type="submit" name="Submit" className="submit button is-primary is-loading"/>
 		}
-		loading = <input type="submit" name="Submit" className="submit button is-primary"/>
 
 		let currentUser;
 		if(this.props.currentUser !== null) {

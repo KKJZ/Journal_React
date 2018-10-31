@@ -30,7 +30,7 @@ export function Landing(props) {
 					Home</a>
 					<a className="navbar-item" href="#"
 					onClick={exampleClick}>
-					Examples</a>
+					Screenshots</a>
 					<a className="navbar-item" href="#"
 					onClick={docClick}>
 					Documentation</a>
@@ -52,7 +52,7 @@ export function Landing(props) {
 					Home</a>
 					<a className="navbar-item is-active" href="#"
 					onClick={exampleClick}>
-					Examples</a>
+					Screenshots</a>
 					<a className="navbar-item" href="#"
 					onClick={docClick}>
 					Documentation</a>
@@ -60,7 +60,7 @@ export function Landing(props) {
 			);
 			body = (
 				<div className="container has-text-centered">
-					<h1 className="title">Examples</h1>
+					<h1 className="title">Screenshots</h1>
 					<div className="columns">
 						<div className="column">
 
@@ -80,7 +80,7 @@ export function Landing(props) {
 					Home</a>
 					<a className="navbar-item" href="#"
 					onClick={exampleClick}>
-					Examples</a>
+					Screenshots</a>
 					<a className="navbar-item is-active" href="#"
 					onClick={docClick}>
 					Documentation</a>

@@ -37,7 +37,7 @@ export function Main(props) {
 		editEntry(title, content, props.entry.id, props.authToken, props.currentUser, props.dispatch)
 	}
 
-	let userPageClasses = "user_page" + props.entry.postFont;
+	let userPageClasses = "user_page" + " " + props.entry.postFont;
 	let color = {
 			"backgroundColor": props.entry.windowColor,
 			"color": props.entry.fontColor
@@ -212,7 +212,7 @@ export function Main(props) {
 	}
 	//editting false
 	return (
-		<div className="user_page" role="User Page"
+		<div className={userPageClasses} role="User Page"
 		style={color}
 		>
 			<h1 className="title">{Title}</h1>

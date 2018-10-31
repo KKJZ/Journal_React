@@ -8,23 +8,32 @@ import {
 	NEW_POST_REQUEST,
 	CHANGE_TITLE,
 	CHANGE_CONTENT,
-	DELETE_ENTRY_REQUEST
+	DELETE_ENTRY_REQUEST,
+	FONT_COLOR,
+	WINDOW_COLOR
 } from '~/actions/profile';
 
 let today = new Date().toString();
+
+export const deafultEntry = {
+		id: null,
+		title: 'Welcome',
+		date: today,
+		content: 'Welcome to your new journal! to start go to the entries tab and select make a new entry!',
+		userName: 'welcome',
+		windowColor: '#ffffff',
+		fontColor: '#000000',
+		postFont: 'comicSansMS'
+}
 
 const intitialState = {
 	entries: null,
 	entryLoading: false,
 	entryError: null,
 	editing: false,
-	entry: {
-		id: null,
-		title: 'welcome',
-		date: today,
-		content: 'test',
-		userName: 'welcome'
-	}
+	editFColor: null,
+	editWColor: null,
+	entry: deafultEntry
 }
 
 export default function profileReducer(state=intitialState, action) {
@@ -71,7 +80,7 @@ export default function profileReducer(state=intitialState, action) {
 		case DELETE_ENTRY_REQUEST: 
 			return Object.assign({}, state, {
 				entryLoading: true
-			})
+			});
 
 		case CHANGE_TITLE:
 			return Object.assign({}, state, {
@@ -93,8 +102,17 @@ export default function profileReducer(state=intitialState, action) {
 					content: action.content,
 					userName: state.entry.userName
 				}
-			})
+			});
 
+		case WINDOW_COLOR:
+			return Object.assign({}, state, {
+				editWColor: action.editWColor
+			});
+
+		case FONT_COLOR:
+			return Object.assign({}, state, {
+				editFColor: action.editFColor
+			})
 		default:
 			return state;
 	}

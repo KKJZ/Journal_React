@@ -1,22 +1,16 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {changeEntry, setEdit} from '~/actions/profile';
+import {changeEntry, setEdit, defaultEntry} from '~/actions/profile';
 import {clearAuthToken} from '~/actions/auth';
 
 // newPostEntry need to make something 
 
 export function Nav(props) {
-	const homeEntry = {
-		title: 'welcome',
-		date: new Date().toString(),
-		content: 'in nav',
-		userName: 'welcome'
-	}
 
 	const homeClick = e => {
 		e.preventDefault();
 		props.dispatch(setEdit(false));
-		props.dispatch(changeEntry(homeEntry));
+		props.dispatch(changeEntry(defaultEntry));
 	}
 
 	const logoutClick = e => {

@@ -1,7 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import './user_page.css';
+import '~/components/User_Page/user_page.css';
+import '~/fonts.css';
 import Nav from './nav';
 import Main from './main';
 import {refreshAuth} from '~/actions/auth';
@@ -54,9 +55,7 @@ export class User_Page extends React.Component {
 	}
 };
 
-const mapStateToProps = state => (
-	console.log(state),
-{
+const mapStateToProps = state => ({
 	authToken: state.auth.authToken,
 	currentUser: state.auth.currentUser,
 	loading: state.auth.loading,

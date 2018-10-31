@@ -55,9 +55,33 @@ export const newPostRequest = () => ({
 export const DELETE_ENTRY_REQUEST = 'DELETE_ENTRY_REQUEST';
 export const deleteEntryRequest = () => ({
 	type: DELETE_ENTRY_REQUEST
-})
+});
 
-export const postEntry = (title, content, token, userName, dispatch) => {
+export const WINDOW_COLOR = 'WINDOW_COLOR';
+export const changeWindowColor = editWColor => ({
+	type:WINDOW_COLOR,
+	editWColor
+});
+
+export const FONT_COLOR = 'FONT_COLOR';
+export const changeFontColor = editFColor => ({
+	type: FONT_COLOR,
+	editFColor
+});
+
+let today = new Date().toString();
+export const defaultEntry = {
+		id: null,
+		title: 'Welcome',
+		date: today,
+		content: 'Welcome to your new journal! to start go to the entries tab and select make a new entry!',
+		userName: 'welcome',
+		windowColor: '#ffffff',
+		fontColor: '#000000',
+		postFont: 'comicSansMS'
+}
+
+export const postEntry = (title, content, windowColor, fontColor, postFont, token, userName, dispatch) => {
 	dispatch(newPostRequest());
 	return (
 		fetch(`${API_BASE_URL}/posts`, {
@@ -68,7 +92,10 @@ export const postEntry = (title, content, token, userName, dispatch) => {
 			},
 			body: JSON.stringify({
 				title,
-				content
+				content,
+				windowColor,
+				fontColor,
+				postFont
 			})
 		})
 		.then(res => normalizeResponseErrors(res))
@@ -133,7 +160,7 @@ export const fetchEntries = (userName, token, dispatch) => {
 }
 
 export const deleteEntry = (userName, title, id, token, dispatch) => {
-	dispatch(deleteRequest());
+	dispatch(deleteEntryRequest());
 	return (
 		fetch(`${API_BASE_URL}/posts/${id}`, {
 			method: 'DELETE',

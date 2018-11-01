@@ -119,8 +119,8 @@ export function Landing(props) {
 					<h2 className="subtitle">Summary:</h2>
 					<h3 className="subtitle">
 					My App, Personal Publication is a journaling app designed with ease of use in mind.<br />
-					My idea with Personal Publication was make a journal that anyone can use and private enough to replace the one under your bed.<br />
-					I personally like to do private journalling to help my depression and as a way of understanding what is bothering me the most.
+					My idea with Personal Publication was to make a journal that anyone could use and private enough to replace the one under your bed.<br />
+					I personally like to do private journaling to help my depression and as a way of understanding what is bothering me the most.
 					</h3>
 					<h2 className="subtitle">Built with:</h2>
 					<div className="columns">

@@ -116,6 +116,12 @@ export function Landing(props) {
 				<div className="container has-text-centered">
 					<h1 className="title">Documentation</h1>
 					<h2 className="subtitle">Made by: Kyle Stockmann</h2>
+					<h2 className="subtitle">Summary:</h2>
+					<h3 className="subtitle">
+					My App, Personal Publication is a journaling app designed with ease of use in mind.<br />
+					My idea with Personal Publication was make a journal that anyone can use and private enough to replace the one under your bed.<br />
+					I personally like to do private journalling to help my depression and as a way of understanding what is bothering me the most.
+					</h3>
 					<h2 className="subtitle">Built with:</h2>
 					<div className="columns">
 						<div className="column">
@@ -136,6 +142,11 @@ export function Landing(props) {
 							</ul>
 						</div>
 					</div>
+					<h2 className="subtitle">
+					Demo User account: <br />
+					Username: Demo <br />
+					Password: rosebud
+					</h2>
 				</div>
 			)
 			break;

@@ -43,7 +43,10 @@ h2.date {
 	margin-right: 10px;
 }
 
-
+img.nav-icon {
+	width: 60px;
+	height: 60px;
+}
 
 p.help {
 	text-align: center;

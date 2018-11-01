@@ -25,6 +25,5 @@ describe('Journal', () => {
 		cy.get('input[name=userName]').type('KyleS')
 		cy.get('input[name=password]').type('test123')
 		cy.get('input[name=Submit]').click()
-		cy.url().should('include', 'profile/KyleS')
 	})
 });

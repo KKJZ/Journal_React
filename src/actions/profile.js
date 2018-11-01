@@ -117,8 +117,15 @@ export const postEntry = (title, content, windowColor, fontColor, postFont, toke
 	)
 }
 
-export const editEntry = (title, content, id, token, userName, dispatch) => {
+export const editEntry = (title, content, windowColor, fontColor, postFont, id, token, userName, dispatch) => {
 	dispatch(newPostRequest());
+	const newEntry = {
+		title,
+		content,
+		windowColor,
+		fontColor,
+		postFont,
+	}
 	return (
 		fetch(`${API_BASE_URL}/posts/${id}`, {
 			method: 'PUT',
@@ -126,18 +133,15 @@ export const editEntry = (title, content, id, token, userName, dispatch) => {
 				'Content-Type': 'application/json',
 				'authorization': `bearer ${token}`
 			},
-			body: JSON.stringify({
-				title,
-				content
-			})
+			body: JSON.stringify(newEntry)
 		})
 		.then(res => normalizeResponseErrors(res))
-		.then(res => console.log(res))
 		.then(res => {
 			//refresh the entries
 			fetchEntries(userName, token, dispatch);
 			//change to edited entry
 			dispatch(setEdit(false));
+			dispatch(changeEntry(newEntry))
 		})
 		.catch(err => {
 			const {code, status} = err;

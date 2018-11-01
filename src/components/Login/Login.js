@@ -13,13 +13,11 @@ export class Login extends React.Component {
 	loginProxy(e) {
 		e.persist();
 		e.preventDefault();
-		console.log(this.props);
 		fetchAuth(this.refs.UserName.value, this.refs.Password.value, this.props.dispatch, 'login');
 	};
 	render() {
 		let error;
 		if (this.props.error) {
-			console.log(this.props.error)
 			switch(this.props.error){
 				case 401:
 				console.log('401');

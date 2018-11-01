@@ -22,19 +22,17 @@ export function Main(props) {
 		let windowColor = e.target[2].value;
 		let fontColor = e.target[3].value;
 		let postFont = e.target[4].value;
-		console.log(title);
-		console.log(content);
-		console.log(windowColor);
-		console.log(fontColor);
-		console.log(postFont);
-		// postEntry(title, content, windowColor, fontColor, postFont, props.authToken, props.currentUser, props.dispatch);
+		postEntry(title, content, windowColor, fontColor, postFont, props.authToken, props.currentUser, props.dispatch);
 	}
 
 	const putProxy = (e) => {
 		e.preventDefault();
 		let title = e.target[0].value;
 		let content = e.target[1].value;
-		editEntry(title, content, props.entry.id, props.authToken, props.currentUser, props.dispatch)
+		let windowColor = e.target[2].value;
+		let fontColor = e.target[3].value;
+		let postFont = e.target[4].value;
+		editEntry(title, content, windowColor, fontColor, postFont, props.entry.id, props.authToken, props.currentUser, props.dispatch)
 	}
 
 	let userPageClasses = "user_page" + " " + props.entry.postFont;

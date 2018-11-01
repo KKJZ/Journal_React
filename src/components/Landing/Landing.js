@@ -63,10 +63,36 @@ export function Landing(props) {
 					<h1 className="title">Screenshots</h1>
 					<div className="columns">
 						<div className="column">
-
+							<a href="https://ibb.co/e1aY00" target="_blank">
+								<img src="https://preview.ibb.co/cT00f0/Landing.jpg" alt="Landing" border="0" />
+							</a>
 						</div>
 						<div className="column">
-
+							<a href="https://ibb.co/e288YL" target="_blank">
+								<img src="https://preview.ibb.co/mNx2tL/Doc.jpg" alt="Doc" border="0" />
+							</a>
+						</div>
+						<div className="column">
+							<a href="https://ibb.co/fpCD00" target="_blank">
+								<img src="https://preview.ibb.co/enTWnf/Login.jpg" alt="Login" border="0" />
+							</a>
+						</div>
+					</div>
+					<div className="columns">
+						<div className="column">
+							<a href="https://ibb.co/dfQNtL" target="_blank">
+								<img src="https://preview.ibb.co/e5JxSf/Register.jpg" alt="Register" border="0" />
+							</a>
+						</div>
+						<div className="column">
+							<a href="https://ibb.co/bEvY00" target="_blank">
+								<img src="https://preview.ibb.co/jpANtL/Main.jpg" alt="Main" border="0" />
+							</a>
+						</div>
+						<div className="column">
+							<a href="https://ibb.co/deZRL0" target="_blank">
+								<img src="https://preview.ibb.co/eCA0f0/NewEntry.jpg" alt="NewEntry" border="0" />
+							</a>
 						</div>
 					</div>
 				</div>

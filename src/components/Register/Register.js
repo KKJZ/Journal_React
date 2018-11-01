@@ -45,7 +45,7 @@ export class Register extends React.Component {
 					ref="Confirm"
 					onChange={e => this.props.dispatch(setConfirmField(e.currentTarget.value))}/>
 					<span className="icon is-small is-right">
-      					<i className="fas fa-lock" />
+      					<i className="fas fa-times" />
     				</span>
     				<p className="help">Password doesn't match</p>
     			</p>
@@ -67,13 +67,10 @@ export class Register extends React.Component {
 		else {
 			//CONFIRMFIELD == NULL
 			Confirm = (
-			<p className="control has-icons-right">
+			<p className="control">
 				<input type="password" name="confirm" placeholder="Confirm Password" className="input" required 
 				ref="Confirm"
 				onChange={e => this.props.dispatch(setConfirmField(e.currentTarget.value))}/>
-				<span className="icon is-small is-right">
-      				<i className="fas fa-times" />
-    			</span>
     		</p>
 		)}
 

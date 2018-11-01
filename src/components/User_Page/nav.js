@@ -82,7 +82,7 @@ export function Nav(props) {
 		<nav className="navbar" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
 				<a className="navbar-item" href="#">
-					<img className="icon" src="#" />
+					<img className="icon" src="https://cdn.onlinewebfonts.com/svg/img_151301.png" />
 				</a>
 				<a 
 				role="button" 

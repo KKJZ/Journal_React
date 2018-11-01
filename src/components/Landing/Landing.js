@@ -164,7 +164,7 @@ export function Landing(props) {
 						onClick={homeClick}
 						>Personal Publication</a>
 					</div>
-					<div id="navbarMenuHeroA" className="navbar-menu">
+					<div id="navbarMenuHeroA" className="navbar-menu is-active">
 						{header}
 					</div>
 				</div>

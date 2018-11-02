@@ -112,7 +112,7 @@ export function Main(props) {
 					<label className="label editing">Font</label>
 					<div className="select is-medium">
 						<select>
-							<option value="airal" className="airal">Airal</option>
+							<option value="airal" className="airal">Arial</option>
 							<option value="timesNewRoman" className="timesNewRoman">Times New Roman</option>
 							<option value="courier" className="courier">Courier</option>
 							<option value="verdana" className="verdana">Verdana</option>

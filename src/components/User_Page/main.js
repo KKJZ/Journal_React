@@ -96,14 +96,14 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Window Color</label>
 					<div className="color">
-						<input type="color" className="color"
+						<input type="color" className="color" value={props.entry.windowColor}
 						onChange={e => props.dispatch(changeWindowColor(e.target.value))}/>
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Font Color</label>
 					<div className="color">
-						<input type="color" className="color"
+						<input type="color" className="color" value={props.entry.fontColor}
 						onChange={e => props.dispatch(changeFontColor(e.target.value))}/>
 					</div>
 					{help}
@@ -168,14 +168,14 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Window Color</label>
 					<div className="color">
-						<input type="color" className="color"
+						<input type="color" className="color" value={prop.entry.windowColor}
 						onChange={e => props.dispatch(changeWindowColor(e.target.value))}/>
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Font Color</label>
 					<div className="color">
-						<input type="color" className="color"
+						<input type="color" className="color" value={prop.entry.fontColor}
 						onChange={e => props.dispatch(changeFontColor(e.target.value))}/>
 					</div>
 					{help}

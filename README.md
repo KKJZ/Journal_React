@@ -5,6 +5,7 @@
 <h2>Built With:</h2>
 <ul>
   <li>React</li>
+  <li>React-Router</li>
   <li>Redux</li>
   <li><a href="https://github.com/KKJZ/Journal_Backend">My Journal Api </a></li>
 </ul>

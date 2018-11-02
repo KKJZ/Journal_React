@@ -24,7 +24,7 @@ export function Nav(props) {
 
 	const homeClick = e => {
 		e.preventDefault();
-		props.dispatch(setEdit(false));
+		props.dispatch(setEdit(true));
 		props.dispatch(changeEntry(defaultEntry));
 	};
 
@@ -45,7 +45,10 @@ export function Nav(props) {
 	const newPostEntry = {
 		title: null,
 		date: null,
-		content: null
+		content: null,
+		windowColor: '#ffffff',
+		fontColor: '#000000',
+		postFont: 'timesNewRoman'
 	};
 
 	const newPost = () => {
@@ -81,7 +84,8 @@ export function Nav(props) {
 	return (
 		<nav className="navbar" role="navigation" aria-label="main navigation">
 			<div className="navbar-brand">
-				<a className="navbar-item" href="#">
+				<a className="navbar-item" href="#"
+				onClick={homeClick}>
 					<img className="nav-icon" src="https://cdn.onlinewebfonts.com/svg/img_151301.png" />
 				</a>
 				<a 

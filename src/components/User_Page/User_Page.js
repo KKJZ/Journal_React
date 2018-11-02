@@ -47,10 +47,10 @@ export class User_Page extends React.Component {
 
 	render() { 
 		return (
-			<div className='wrapper'>
+			<section className="hero is-primary is-fullheight is-bold fix">
 				<Nav/>
 				<Main/>
-			</div>
+			</section>
 		)
 	}
 };

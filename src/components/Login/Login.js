@@ -39,9 +39,9 @@ export class Login extends React.Component {
 
 		let loading;
 		if (this.props.loading !== true){
-			loading = <input type="submit" name="Submit" className="submit button is-primary"/> 
+			loading = <input type="submit" name="Submit" className="submit button is-success"/> 
 		} else{
-			loading = <input type="submit" name="Submit" className="submit button is-primary is-loading"/>
+			loading = <input type="submit" name="Submit" className="submit button is-success is-loading"/>
 		}
 
 		let currentUser;
@@ -51,6 +51,7 @@ export class Login extends React.Component {
 		}
 
 	return (
+		<section className="hero is-primary is-fullheight is-bold">
 		<div className="login">
 			{currentUser}
 			<form htmlFor="Login" id="login"
@@ -79,9 +80,13 @@ export class Login extends React.Component {
 					</div>
 					{loading}
 					<Link to="/register"><a href="/register" className="register button is-link">Register</a></Link>
+					<p className="demo"><b>Demo acccount:<br/>
+					Username: Demo<br/>
+					Password: rosebud</b></p>
 				</fieldset>
 			</form>
 		</div>
+		</section>
 		)
 	}
 }

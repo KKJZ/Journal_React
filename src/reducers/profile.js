@@ -20,9 +20,9 @@ const intitialState = {
 	entryLoading: false,
 	navbar: false,
 	entryError: null,
-	editing: false,
-	editFColor: null,
-	editWColor: null,
+	editing: true,
+	editFColor: "#000000",
+	editWColor: "#ffffff",
 	entry: defaultEntry
 }
 

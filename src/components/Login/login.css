@@ -13,6 +13,7 @@ fieldset.login {
 	padding-left: 30px;
 	padding-bottom: 40px;
 	padding-top: 40px;
+	background: linear-gradient(141deg, #009e6c 5%, #00d1b2 71%, #000000a8 100%)
 }
 
 h1 {
@@ -30,6 +31,12 @@ input.submit {
 a.register {
 	margin-top: 20px;
 	float: right;
+}
+
+p.demo {
+	text-align: center;
+	margin-top: 80px;
+	text-shadow: 
 }
 
 .error {

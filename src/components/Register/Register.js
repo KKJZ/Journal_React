@@ -81,16 +81,16 @@ export class Register extends React.Component {
 
 				if(this.props.confirmField === this.props.passwordField){
 					//IF CONFIRMFIELD AND PASSWORDFIELD =
-					Submit = (<input type="submit" name="Submit" className="submit button is-primary"/>);
+					Submit = (<input type="submit" name="Submit" className="submit button is-success"/>);
 				} else {
 					//IF PASSWORDFIELD !=== CONFIRMFIELD
-					Submit = (<input type="submit" name="Submit" className="submit button is-primary" disabled/>)}
+					Submit = (<input type="submit" name="Submit" className="submit button is-success" disabled/>)}
 			} else {
 				//PASSWORDFIELD == NULL
-				Submit = (<input type="submit" name="Submit" className="submit button is-primary" disabled/>)}
+				Submit = (<input type="submit" name="Submit" className="submit button is-success" disabled/>)}
 		}else {
 			//USERNAMEFIELD == NULL
-			Submit = (<input type="submit" name="Submit" className="submit button is-primary" disabled/>)};
+			Submit = (<input type="submit" name="Submit" className="submit button is-success" disabled/>)};
 
 		let currentUser;
 		if(this.props.currentUser !== null) {
@@ -99,6 +99,7 @@ export class Register extends React.Component {
 		}
 
 	return (
+		<section className="hero is-primary is-fullheight is-bold">
 		<div className="register">
 		{currentUser}
 			<form role="Register" id="register" 
@@ -124,6 +125,7 @@ export class Register extends React.Component {
 				</fieldset>
 			</form>
 		</div>
+		</section>
 		)
 	}
 };

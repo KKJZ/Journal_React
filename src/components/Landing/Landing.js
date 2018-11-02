@@ -1,4 +1,5 @@
 import React from 'react';
+import "~/components/Landing/landing.css"
 import {BrowserRouter as Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setHome, setExample, setDocumentation} from '~/actions/landing';
@@ -40,6 +41,7 @@ export function Landing(props) {
 				<div className="container has-text-centered">
 					<h1 className="title">Personal Publication</h1>
 					<h2 className="subtitle">Never forget your journal again.</h2>
+					<img className="Icon"  src="https://cdn.onlinewebfonts.com/svg/img_151301.png" /><br/>
 					<Link to="/login"><a className="button is-large is-info login" href="/login">Check it out!</a></Link>
 				</div>
 			)

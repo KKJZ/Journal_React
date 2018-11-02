@@ -84,26 +84,26 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Title</label>
 					<div className="title">
-						<input className="title input" type="text" placeholder="Title" />
+						<input className="Title input" type="text" placeholder="Title" />
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Content</label>
 					<div className="content">
-						<textarea className="textarea" placeholder="Type your entry here!" />
+						<textarea className="textarea" value={props.entry.content} placeholder="Type your entry here!" />
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Window Color</label>
 					<div className="color">
-						<input type="color" className="color" value={props.entry.windowColor}
+						<input type="color" className="color" value="#ffffff"
 						onChange={e => props.dispatch(changeWindowColor(e.target.value))}/>
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Font Color</label>
 					<div className="color">
-						<input type="color" className="color" value={props.entry.fontColor}
+						<input type="color" className="color" value="#000000"
 						onChange={e => props.dispatch(changeFontColor(e.target.value))}/>
 					</div>
 					{help}
@@ -148,7 +148,7 @@ export function Main(props) {
 					<label className="label editing">Title</label>
 					<div>
 						<input 
-						className="input" 
+						className="Title input" 
 						type="text" 
 						placeholder="Title" 
 						value={props.entry.title}
@@ -168,14 +168,14 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Window Color</label>
 					<div className="color">
-						<input type="color" className="color" value={prop.entry.windowColor}
+						<input type="color" className="color" defaultValue={props.entry.windowColor}
 						onChange={e => props.dispatch(changeWindowColor(e.target.value))}/>
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Font Color</label>
 					<div className="color">
-						<input type="color" className="color" value={prop.entry.fontColor}
+						<input type="color" className="color" defaultValue={props.entry.fontColor}
 						onChange={e => props.dispatch(changeFontColor(e.target.value))}/>
 					</div>
 					{help}
@@ -213,7 +213,7 @@ export function Main(props) {
 		<div className={userPageClasses} role="User Page"
 		style={color}
 		>
-			<h1 className="title">{Title}</h1>
+			<h1 className="Title">{Title}</h1>
 			<h2 className="date">{__Date}</h2>
 			<section className="content">
 			{Content}

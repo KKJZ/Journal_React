@@ -79,9 +79,9 @@ export const setNavBar = navbar => ({
 let today = new Date().toString();
 export const defaultEntry = {
 		id: null,
-		title: 'Welcome',
+		title: null,
 		date: today,
-		content: 'Welcome to your new journal! to start go to the entries tab and select make a new entry!',
+		content: 'Welcome to your new journal!!',
 		userName: 'welcome',
 		windowColor: '#ffffff',
 		fontColor: '#000000',

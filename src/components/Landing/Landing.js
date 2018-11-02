@@ -40,8 +40,9 @@ export function Landing(props) {
 			body = (
 				<div className="container has-text-centered">
 					<h1 className="title">Personal Publication</h1>
-					<h2 className="subtitle">Never forget your journal again.</h2>
+					<h2 className="subtitle">Online private personal journaling.</h2>
 					<img className="Icon"  src="https://cdn.onlinewebfonts.com/svg/img_151301.png" /><br/>
+					<h2 className="subtitle">Never forget your journal again.</h2>
 					<Link to="/login"><a className="button is-large is-info login" href="/login">Check it out!</a></Link>
 				</div>
 			)
@@ -65,35 +66,31 @@ export function Landing(props) {
 					<h1 className="title">Screenshots</h1>
 					<div className="columns">
 						<div className="column">
-							<a href="https://ibb.co/e1aY00" target="_blank">
-								<img src="https://preview.ibb.co/cT00f0/Landing.jpg" alt="Landing" border="0" />
+							<a href="https://ibb.co/nDicV0" target="_blank">
+								<img src="https://preview.ibb.co/buht3L/Landing.jpg" alt="Landing" border="0" />
+							</a>
+
+						</div>
+						<div className="column">
+							<a href="https://ibb.co/iEH4A0" target="_blank">
+								<img src="https://preview.ibb.co/dywaHf/Doc.jpg" alt="Doc" border="0" />
 							</a>
 						</div>
 						<div className="column">
-							<a href="https://ibb.co/e288YL" target="_blank">
-								<img src="https://preview.ibb.co/mNx2tL/Doc.jpg" alt="Doc" border="0" />
-							</a>
-						</div>
-						<div className="column">
-							<a href="https://ibb.co/fpCD00" target="_blank">
-								<img src="https://preview.ibb.co/enTWnf/Login.jpg" alt="Login" border="0" />
+							<a href="https://ibb.co/kBZ6OL" target="_blank">
+								<img src="https://preview.ibb.co/dskD3L/Login.jpg" alt="Login" border="0" />
 							</a>
 						</div>
 					</div>
 					<div className="columns">
 						<div className="column">
-							<a href="https://ibb.co/dfQNtL" target="_blank">
-								<img src="https://preview.ibb.co/e5JxSf/Register.jpg" alt="Register" border="0" />
+							<a href="https://ibb.co/nfOpcf" target="_blank">
+								<img src="https://preview.ibb.co/hvtBq0/Register.jpg" alt="Register" border="0" />
 							</a>
 						</div>
 						<div className="column">
-							<a href="https://ibb.co/bEvY00" target="_blank">
-								<img src="https://preview.ibb.co/jpANtL/Main.jpg" alt="Main" border="0" />
-							</a>
-						</div>
-						<div className="column">
-							<a href="https://ibb.co/deZRL0" target="_blank">
-								<img src="https://preview.ibb.co/eCA0f0/NewEntry.jpg" alt="NewEntry" border="0" />
+							<a href="https://ibb.co/fwzvHf" target="_blank">
+								<img src="https://preview.ibb.co/dGfPA0/NewEntry.jpg" alt="NewEntry" border="0" />
 							</a>
 						</div>
 					</div>
@@ -144,11 +141,6 @@ export function Landing(props) {
 							</ul>
 						</div>
 					</div>
-					<h2 className="subtitle">
-					Demo User account: <br />
-					Username: Demo <br />
-					Password: rosebud
-					</h2>
 				</div>
 			)
 			break;

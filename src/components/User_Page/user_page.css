@@ -14,6 +14,7 @@ div.user_page {
 
 div.user_page_edit {
 	height: 700px;
+	background: white;
 }
 
 div.title, div.content {

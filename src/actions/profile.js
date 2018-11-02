@@ -81,7 +81,7 @@ export const defaultEntry = {
 		id: null,
 		title: null,
 		date: today,
-		content: 'Welcome to your new journal!!',
+		content: 'Welcome to your journal!!',
 		userName: 'welcome',
 		windowColor: '#ffffff',
 		fontColor: '#000000',

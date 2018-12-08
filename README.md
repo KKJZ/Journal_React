@@ -11,7 +11,7 @@
 </ul>
 My App, Personal Publication is a journaling app designed with ease of use in mind.
 My idea with Personal Publication was make a journal that anyone can use and private enough to replace the one under your bed.
-I personally like to do private journalling to help my depression and as a way of understanding what is bothering me the most.
+I personally like to do private journaling to help my depression and as a way of understanding what is bothering me the most.
 
 <br/>
  <a href="https://personalpublication.herokuapp.com/">Live App</a>
@@ -27,7 +27,7 @@ I personally like to do private journalling to help my depression and as a way o
 <a href="https://ibb.co/kBZ6OL"><img src="https://preview.ibb.co/dskD3L/Login.jpg" alt="Login" border="0"></a>
 
 
-<a href="https://ibb.co/fwzvHf"><img src="https://preview.ibb.co/dGfPA0/NewEntry.jpg" alt="NewEntry" border="0"></a>
+<a href="https://ibb.co/DCnhPLF"><img src="https://i.ibb.co/QNGL7XV/Untitled.jpg" alt="Personal Publication" border="0"></a>
 
 
 <a href="https://ibb.co/nfOpcf"><img src="https://preview.ibb.co/hvtBq0/Register.jpg" alt="Register" border="0"></a>

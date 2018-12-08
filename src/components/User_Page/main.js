@@ -32,7 +32,7 @@ export function Main(props) {
 		let windowColor = e.target[2].value;
 		let fontColor = e.target[3].value;
 		let postFont = e.target[4].value;
-		editEntry(title, content, windowColor, fontColor, postFont, props.entry.id, props.authToken, props.currentUser, props.dispatch)
+		editEntry(title, content, windowColor, fontColor, postFont, props.entry.id, props.authToken, props.currentUser, props.dispatch);
 	}
 
 	let userPageClasses = "user_page" + " " + props.entry.postFont;

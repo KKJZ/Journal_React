@@ -96,14 +96,14 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Window Color</label>
 					<div className="color">
-						<input type="color" className="color" value="#ffffff"
+						<input type="color" className="color" value={props.editWColor}
 						onChange={e => props.dispatch(changeWindowColor(e.target.value))}/>
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Font Color</label>
 					<div className="color">
-						<input type="color" className="color" value="#000000"
+						<input type="color" className="color" value={props.editFColor}
 						onChange={e => props.dispatch(changeFontColor(e.target.value))}/>
 					</div>
 					{help}

@@ -84,13 +84,13 @@ export function Main(props) {
 				<div className="field">
 					<label className="label editing">Title</label>
 					<div className="title">
-						<input className="Title input" type="text" placeholder="Title" />
+						<input className="Title input" type="text" placeholder="Type your title here!" />
 					</div>
 				</div>
 				<div className="field">
 					<label className="label editing">Content</label>
 					<div className="content">
-						<textarea className="textarea" value={props.entry.content} placeholder="Type your entry here!" />
+						<textarea className="textarea" placeholder="Type your entry here!" />
 					</div>
 				</div>
 				<div className="field">

@@ -122,6 +122,7 @@ export const editEntry = (title, content, windowColor, fontColor, postFont, id, 
 	const newEntry = {
 		title,
 		content,
+		id,
 		windowColor,
 		fontColor,
 		postFont,

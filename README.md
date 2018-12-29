@@ -15,6 +15,11 @@ My idea with Personal Publication was make a journal that anyone can use and pri
 I personally like to do private journaling to help my depression and as a way of understanding what is bothering me the most.</p>
 
 <a href="https://personalpublication.herokuapp.com/">Live App</a>
+<h2>TO DO:</h2>
+<ul>
+  <li>Entries allow line breaks</li>
+  <li>Video entries</li>
+</ul>
 
 ## Screenshots:
 <h3>Landing Documention:</h3>
